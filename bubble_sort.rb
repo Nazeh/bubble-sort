@@ -14,7 +14,7 @@ def bubble_sort(array)
                 swapped = true
             end
         end
-        
+
         k += 1
         n -= 1
     end
@@ -22,8 +22,38 @@ def bubble_sort(array)
     array
 end
 
+#bubble sort by
+def bubble_sort_by(array)
+    n = array.length
+    swapped = true
+    k = 0
+
+    while n >= 1 && swapped
+        swapped = false
+
+        for i in 0...n-k-1
+            if yield(array[i], array[i+1]) < 0
+                frst = array[i]
+                array[i] = array[i+1]
+                array[i+1] = frst
+                swapped = true
+            end
+        end
+
+        k += 1
+        n -= 1
+    end
+
+    return array
+end
+
+
+puts bubble_sort_by(["hi","hello","hey"]) do |left,right|
+        left.length - right.length
+     end
 
 #test casses
+=begin
 tests = [   [[2,3,4,1,26,9,10,4,4, 10, 15,12,2,0,1,5,70,23,57,29,0,12,33,100,33,77], [0, 0, 1, 1, 2, 2, 3, 4, 4, 4, 5, 9, 10, 10, 12, 12, 15, 23, 26, 29, 33, 33, 57, 70, 77, 100]],
         ]
 
@@ -33,3 +63,4 @@ for test in tests
         'expected:', test[1].to_s, 'Got:', bubble_sort(test[0]).to_s
     puts '  '
 end
+=end
