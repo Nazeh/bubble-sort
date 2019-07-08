@@ -1,16 +1,21 @@
 #bubble sort function
 def bubble_sort(array)
     n = array.length
+    swapped = true
+    k = 0
+    while n >= 1 && swapped
+        swapped = false
 
-    while n >= 1
-        for i in 0...n-1
+        for i in 0...n-k-1
             if array[i] > array[i+1]
                 frst = array[i]
                 array[i] = array[i+1]
                 array[i+1] = frst
+                swapped = true
             end
         end
         
+        k += 1
         n -= 1
     end
 
