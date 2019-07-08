@@ -23,7 +23,7 @@ def bubble_sort_by(array)
   while n > 1
     newn = 0
     (1..n - 1).each do |i|
-      next unless yield(array[i - 1], array[i]) > 0
+      next unless yield(array[i - 1], array[i]).positive?
 
       array[i - 1], array[i] = array[i], array[i - 1]
 
@@ -36,7 +36,8 @@ end
 
 # test casses
 tests = [
-  [[2, 3, 4, 1, 26, 9, 10, 4, 4, 10, 15, 12, 2, 0, 1, 5, 70, 23, 57, 29, 0, 12, 33, 100, 33, 77], [0, 0, 1, 1, 2, 2, 3, 4, 4, 4, 5, 9, 10, 10, 12, 12, 15, 23, 26, 29, 33, 33, 57, 70, 77, 100]]
+  [[2, 3, 4, 1, 26, 9, 10, 4, 10, 15, 70, 23, 57, 29, 0, 12, 33, 100, 33, 77],
+   [0, 1, 2, 3, 4, 4, 9, 10, 10, 12, 15, 23, 26, 29, 33, 33, 57, 70, 77, 100]]
 ]
 puts 'test Bubble_sort'
 tests.each do |test|
