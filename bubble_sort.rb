@@ -15,6 +15,8 @@ def bubble_sort(array)
 
     n = newn
   end
+
+  array
 end
 
 #bubble sort by
@@ -31,7 +33,7 @@ def bubble_sort_by(array)
         newn = i
       end
     end
-    
+
     n = newn
   end
     
