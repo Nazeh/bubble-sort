@@ -1,39 +1,42 @@
 #bubble sort function
 def bubble_sort(array)
-    n = array.length
+  n = array.length
     
-    while n > 1
-        newn = 0
-        for i in 1..n-1
-            if array[i-1] > array[i]
-                array[i-1], array[i] = array[i], array[i-1]
-                newn = i
-            end
-        end
-        n = newn
+  while n > 1
+    newn = 0
+
+    for i in 1..n-1
+      if array[i-1] > array[i]
+        array[i-1], array[i] = array[i], array[i-1]
+
+        newn = i
+      end
     end
-    
-    array
+
+    n = newn
+  end
 end
 
 #bubble sort by
 def bubble_sort_by(array)
-    n = array.length
+  n = array.length
     
-    while n > 1
-        newn = 0
-        for i in 1..n-1
-            if yield(array[i-1], array[i]) > 0
-                array[i-1], array[i] = array[i], array[i-1]
-                newn = i
-            end
-        end
-        n = newn
+  while n > 1
+    newn = 0
+
+    for i in 1..n-1
+      if yield(array[i-1], array[i]) > 0
+        array[i-1], array[i] = array[i], array[i-1]
+
+        newn = i
+      end
     end
     
-    array
+    n = newn
+  end
+    
+  array
 end
-
 
 #test casses
 tests = [
