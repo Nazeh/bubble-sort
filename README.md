@@ -1,2 +1,2 @@
 # bubble_sort
-Bubble Sort 
+Bubble sort implementation with Ruby
